@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="할 일, 시간표, 달력.">
+  <title>petit jour. — 할 일</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <aside class="sidebar" aria-label="메뉴">
+    <a class="brand" href="#daily" data-action="view" data-view="daily" aria-label="petit jour 홈">petit jour<span>.</span></a>
+    <nav id="navigation"></nav>
+    <section class="collections-nav" aria-label="컬렉션">
+      <div class="collections-label"><span>컬렉션</span><button class="icon-button" data-action="category" aria-label="컬렉션 추가">+</button></div>
+      <nav id="collections" aria-label="컬렉션 목록"></nav>
+    </section>
+    <div class="sidebar-bottom">
+      <button class="account" data-action="settings" aria-label="설정"><span class="account-avatar">Y</span><span id="account-name">Yebin</span><span data-icon="settings"></span></button>
+    </div>
+  </aside>
+  <div class="app-shell"><main id="main" class="main"></main></div>
+  <span id="save-state" class="sr-only" role="status">저장됨</span>
+  <dialog id="editor-dialog"><form id="editor-form" autocomplete="off"></form></dialog>
+  <dialog id="settings-dialog" class="settings-dialog"></dialog>
+  <dialog id="category-dialog"><form id="category-form"></form></dialog>
+  <dialog id="search-dialog" class="search-dialog"></dialog>
+  <dialog id="date-dialog" class="date-dialog"><form id="date-form"><div class="dialog-header"><h2>날짜</h2><button type="button" class="icon-button" data-close="date-dialog" aria-label="닫기">×</button></div><label class="field">날짜<input type="date" name="date" required></label><button class="primary-button" type="submit">이동</button></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <input type="file" id="import-file" accept="application/json,.json" hidden>
+</body>
+</html>
